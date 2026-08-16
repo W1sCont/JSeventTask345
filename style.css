@@ -1,0 +1,33 @@
+#parentUl{
+    font-size: 20px;
+    display: block;
+    background-color: #fbf2e9;
+    height: 250px;
+    width: 350px;
+}
+dd{
+    display: block;
+}
+
+div{
+    background-color: #fbf2e9;
+    width: 700px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border: 2px black;
+    border-radius: 1px;
+    box-shadow: 3px;
+    user-select: none;
+    font-size: 18px;
+}
+.my-container li{
+    padding: 2px;
+}
+.my-container li:hover{
+    background-color: #ffa984;
+}
+.my-container .is-selected{
+    background-color: #ffa984;
+}
