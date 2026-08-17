@@ -13,20 +13,8 @@ function mouseOut(e) {
     curent.style.fontWeight = "normal";
 }
 
-function mouseTask1() {
-    if (flag) {
-        document.body.addEventListener("mouseover", mouseOver);
-        document.body.addEventListener("mouseout", mouseOut);
-        flag = false;
-    }
-    else {
-        document.body.removeEventListener("mouseover", mouseOver);
-        document.body.removeEventListener("mouseout", mouseOut);
-        flag = true;
-    }
-}
-
-button.addEventListener("click", mouseTask1)
+parentUl.addEventListener("mouseover", mouseOver);
+parentUl.addEventListener("mouseout", mouseOut);
 
 
 function hideDd(e) {
@@ -113,4 +101,34 @@ function resetSelected() {
             elem.classList.toggle("is-selected")
         }
     });
+}
+
+///////////////////////////////////////////////////////////
+
+//Task 3
+
+let divTask3 = document.getElementById("task3");
+let triangle = document.getElementById("divTriangle");
+
+triangle.addEventListener("mousedown", DownHandler);
+document.addEventListener("mouseup", UpHandler);
+document.addEventListener("mousemove", MoveHandler);
+let flagT3 = false, X, Y, W, H;
+
+function DownHandler(ev) {
+    ev.preventDefault();
+    flagT3 = true;
+    X = ev.clientX;
+    Y = ev.clientY;
+    W = divTask3.offsetWidth;
+    H = divTask3.offsetHeight;
+}
+function UpHandler(ev) {
+    flagT3 = false;
+}
+function MoveHandler(ev) {
+    if (flagT3) {
+        divTask3.style.width = (ev.clientX - X + W) + "px";
+        divTask3.style.height = (ev.clientY - Y + H) + "px";
+    }
 }
